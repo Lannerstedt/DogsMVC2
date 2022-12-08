@@ -1,19 +1,20 @@
-﻿@using MVCLabb.Models
+﻿@using DogsMVC.Models
 @model Dog[]
 
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-    <title>Products</title>
+    <title>Dogs</title>
     <body>
-        <h1>Products</h1>
-        <p>Nu har du lagt till en hund</p>
+        <h1>Dogs</h1>
+        <p>List of dogs</p>
         <ul>
            @foreach (var dogs in Model)
             {
                 <li>@dogs.Name, @dogs.Age</li>
             }
         </ul>
+        <a href="/Create">Add a dog to the list</a>
     </body>
 
 </head>

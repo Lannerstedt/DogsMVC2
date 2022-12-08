@@ -16,14 +16,22 @@ namespace DogsMVC.Controllers
         [HttpGet("index")] 
         public IActionResult Index() 
         {
+            var model = service.GetAllDogs(); 
+            return View(model);
+        }
+
+        [HttpGet("create")] 
+        public IActionResult Create() 
+        {
             return View();
         }
 
-        [HttpPost("index")]
-        public IActionResult Index(Dog dog)  
+        [HttpPost("create")]
+        public IActionResult Create(Dog dog)  
         {
             service.AddDog(dog);
-            return RedirectToAction(nameof(RedirectPage)); 
+            return RedirectToAction(nameof(Index)); 
         }
+
     }
 }

@@ -9,7 +9,7 @@
             new Dog { ID = 3, Name = "Leif", Age = 8}
         };
 
-        public Dog[] GetAllDogs(Dog dog)
+        public Dog[] GetAllDogs()
         {
             return dogs
                 .OrderBy(p => p.Name)
