@@ -1,4 +1,5 @@
-﻿using DogsMVC.Models;
+﻿using AspNetCore;
+using DogsMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DogsMVC.Controllers
@@ -13,25 +14,32 @@ namespace DogsMVC.Controllers
         }
 
         [HttpGet("")]
-        [HttpGet("index")] 
-        public IActionResult Index() 
+        [HttpGet("index")]
+        public IActionResult Index()
         {
-            var model = service.GetAllDogs(); 
+            var model = service.GetAllDogs();
             return View(model);
         }
 
-        [HttpGet("create")] 
-        public IActionResult Create() 
+        [HttpGet("create")]
+        public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost("create")]
-        public IActionResult Create(Dog dog)  
+        public IActionResult Create(Dog dog)
         {
             service.AddDog(dog);
-            return RedirectToAction(nameof(Index)); 
+            return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet("index/{id}")]
+        public IActionResult Index(int id)
+        {
+            var modelLista = service.GetAllDogs();
+            var model = modelLista.FirstOrDefault(b => b.ID == id);
+            return View(model);
+        }
     }
 }

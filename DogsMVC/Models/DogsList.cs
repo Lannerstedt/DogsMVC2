@@ -2,7 +2,7 @@
 {
     public class DogsList
     {
-        static List<Dog> dogs = new List<Dog> //statisk så att den inte förnyas och användarens svar sparas i listan
+        static List<Dog> dogs = new List<Dog> 
         {
             new Dog { ID = 1, Name = "Gibson", Age = 4},
             new Dog { ID = 2, Name = "Taylor", Age = 6},
@@ -22,5 +22,10 @@
             dogs.Add(dog);
         }
 
+        public Dog GetDogByID(int id)
+        {
+            return dogs
+                .FirstOrDefault(p => p.ID == id);
+        }
     }
 }
