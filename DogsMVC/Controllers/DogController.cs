@@ -23,7 +23,7 @@ namespace DogsMVC.Controllers
         public IActionResult Index(Dog dog)  
         {
             service.AddDog(dog);
-            return RedirectToAction(nameof(Index)); 
+            return RedirectToAction(nameof(RedirectPage)); 
         }
     }
 }

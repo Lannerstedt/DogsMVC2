@@ -9,10 +9,18 @@
             new Dog { ID = 3, Name = "Leif", Age = 8}
         };
 
+        public Dog[] GetAllDogs(Dog dog)
+        {
+            return dogs
+                .OrderBy(p => p.Name)
+                .ThenBy(p => p.Age)
+                .ToArray();
+        }
         public void AddDog(Dog dog)
         {
             dog.ID = dogs.Max(d => d.ID) + 1;
             dogs.Add(dog);
         }
+
     }
 }
