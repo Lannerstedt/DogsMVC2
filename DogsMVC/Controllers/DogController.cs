@@ -12,6 +12,7 @@ namespace DogsMVC.Controllers
 
         }
 
+        [HttpGet("")]
         [HttpGet("index")] 
         public IActionResult Index() 
         {
